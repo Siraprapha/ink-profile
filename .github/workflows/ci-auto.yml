@@ -51,7 +51,7 @@ on:
 env:
   PROJECT_ID: '${{ secrets.GCP_PROJECT_ID }}'
   ARTIFACT_REGISTRY: '${{ secrets.GCP_ARTIFACT_REGISTRY }}'
-  GAR_LOCATION: '${{ secrets.GCP_ARTIFACT_REGISTRY }}'
+  GAR_LOCATION: '${{ secrets.GCP_ARTIFACT_REGISTRY_LOCATION }}'
   SERVICE: inko
   REGION: asia-southeast1
 
