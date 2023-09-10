@@ -50,6 +50,7 @@ on:
 
 env:
   PROJECT_ID: '${{ secrets.GCP_PROJECT_ID }}'
+  ARTIFACT_REGISTRY: '${{ secrets.GCP_ARTIFACT_REGISTRY }}'
   GAR_LOCATION: '${{ secrets.GCP_ARTIFACT_REGISTRY_LOCATION }}'
   SERVICE: inko
   REGION: asia-southeast1
@@ -88,8 +89,8 @@ jobs:
 
       - name: Build and Push Container
         run: |-
-          docker build -t "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}" ./
-          docker push "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}"
+          docker build -t "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.ARTIFACT_REGISTRY }}/${{ env.SERVICE }}:${{ github.sha }}" ./
+          docker push "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.ARTIFACT_REGISTRY }}/${{ env.SERVICE }}:${{ github.sha }}"
 
       # END - Docker auth and build
 
